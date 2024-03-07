@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="background">
+        <canvas id="canvas"></canvas>
+    </div>
+    <div class="slideShine"></div>
+
+    <div class="name">
+        <h2 align="center">随机点名器</h2>
+
+        <div class="user">
+            <div class="ite">幸运嘉宾</div>
+        </div>
+        <div class="btn">
+            <button id="btn1" class="start">开始</button>
+            <button id="btn2" class="dabo">双人</button>
+        </div>
+    </div>
+
+    <div class="classname">
+
+    </div>
+</body>
+<script>
+    let obj = [
+        {
+            name: "姚新奇",
+            six: "男",
+        },
+        {
+            name: "黄文龙",
+            six: "男",
+        },
+        {
+            name: "杨文航 ",
+            six: "男",
+        },
+        {
+            name: "石海滨",
+            six: "男",
+        },
+        {
+            name: "刘乐",
+            six: "男",
+        },
+        {
+            name: "韩昊天 ",
+            six: "男",
+        },
+        {
+            name: "王子默",
+            six: "男",
+        },
+        {
+            name: "黄金祥",
+            six: "男",
+        },
+        {
+            name: "孙晨",
+            six: "男",
+        },
+        {
+            name: "李周硕",
+            six: "男",
+        },
+        {
+            name: "孙小云",
+            six: "女",
+        },
+        {
+            name: "杨名迪",
+            six: "女",
+        },
+        {
+            name: "孙泽森",
+            six: "男",
+        },
+        {
+            name: "米子奇",
+            six: "男",
+        },
+        {
+            name: "李洋",
+            six: "男",
+        },
+        {
+            name: "马浩阳",
+            six: "男",
+        },
+        {
+            name: "侯婉茹",
+            six: "女",
+        },
+        {
+            name: "俎召铃",
+            six: "男",
+        },
+        {
+            name: "白颖帆",
+            six: "男",
+        },
+        {
+            name: "王震霆",
+            six: "男",
+        },
+        {
+            name: "李金阳",
+            six: "女",
+        },
+        {
+            name: "肖富兴",
+            six: "男",
+        },
+        {
+            name: "贾亚锐",
+            six: "男",
+        },
+        {
+            name: "胡星宇",
+            six: "男",
+        },
+        {
+            name: "卢孟磊",
+            six: "男",
+        },
+        {
+            name: "邓恒智",
+            six: "男",
+        },
+        {
+            name: "胡明言",
+            six: "男",
+        },
+        {
+            name: "徐政田",
+            six: "男",
+        },
+        {
+            name: "刘豪然",
+            six: "男",
+        },
+        {
+            name: "和清龙",
+            six: "男",
+        },
+        {
+            name: "刘东宇",
+            six: "男",
+        },
+        {
+            name: "胡雅茜 ",
+            six: "女",
+        },
+    ];
+    var arr = obj
+    console.log(arr);
+    function bg3() {
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        return "rgb(" + r + ',' + g + ',' + b + ")";//所有方法的拼接都可以用ES6新特性`其他字符串{$变量名}`替换
+    }
+    console.log(bg3());
+    function deg() {
+        let p = Math.floor(Math.random() * 360);
+        return p
+    }
+    var itnem = document.querySelector(".classname")
+    for (let i = 0; i < obj.length; i++) {
+        // console.log(obj[i].name);
+
+        // console.log(bg3());
+        itnem.innerHTML += `<div class="itName" style="background: linear-gradient(${deg()}deg, #14ffe9, #ffeb3b, ${bg3()}, ${bg3()}, red), green;-webkit-background-clip: text;
+        ">${obj[i].name}</div>`
+
+    }
+
+    let dabo = document.querySelector("#btn2")
+    var fl = true
+
+    dabo.onclick = function () {
+        if (fl) {
+            dabo.className = 'stop'
+            dabo.innerHTML = '停止'
+            var dab = setInterval(function () {
+                var a = Math.floor(Math.random() * obj.length)
+                var b = Math.floor(Math.random() * arr.length)
+                nameList.innerHTML = `<div class="ite">${obj[a].name}</div>
+                <div class="ite">${arr[b].name}</div>`
+                for (let j = 0; j < xye.length; j++) {
+                    xye[j].className = 'itName'
+                }
+                xye[a].className = 'active'
+                xye[b].className = 'active'
+                if (fl == true) {
+                    clearInterval(dab);
+                    dabo.className = 'start'
+                    dabo.innerHTML = '双人'
+                }
+            }, 50)
+        }
+        fl=!fl
+    }
+    // console.log(fl);
+
+
+
+
+    //页面初始化时间设置
+    window.onload = function () {
+        datatime();
+    }
+    //页面时间动态刷新
+    setInterval(datatime, 1000);
+
+    function datatime() {
+        let data = new Date();
+        let dataString = "当前时间：" + data.toLocaleString();
+        document.querySelector(".slideShine").innerHTML = dataString;
+    }
+
+
+    let btn1 = document.querySelector("#btn1")
+    let nameList = document.querySelector(".user")
+    var xye = document.querySelectorAll('.itName')
+    var flag = true;
+    btn1.onclick = function () {
+        if (flag) {
+            btn1.className = 'stop'
+            btn1.innerHTML = "停止"
+            // 定时器
+            var timer = setInterval(function () {
+                // 随机产生索引
+                var i = Math.floor(Math.random() * obj.length);
+                // 通过索读取姓名，并将姓名写入HTML中
+                nameList.innerHTML = `<div class="ite">${obj[i].name}</div>`
+                for (let j = 0; j < xye.length; j++) {
+                    xye[j].className = 'itName'
+                }
+                xye[i].className = 'active'
+
+                // 这一步的目的是当第二次点击时，让计时器停止，使得最后写入的姓名固定下来
+                // 因为在第一次点击时，计时器需要启动，而这个时候标志位flag已经变为false
+                // 所以第二次点击，标志位flag变为true，代表需要停止，这时候停止计时器
+                if (flag == true) {
+                    clearInterval(timer);
+                    btn1.className = "start"
+                    btn1.innerHTML = "开始"
+                }
+            }, 50)
+        }
+        // 更改标志位状态值
+        flag = !flag;
+    }
+
+
+
+
+
+
+
+    // 设置div背景的宽高
+    background = document.getElementById("background")
+    background.style.width = innerWidth + 'px'
+    background.style.height = innerHeight + 'px'
+
+    // 获取canvas对象
+    var canvas = document.getElementById("canvas")
+    // 获取画笔
+    var ctx = canvas.getContext("2d")
+
+    // 设置canvas宽高
+    canvas.height = innerHeight
+    canvas.width = innerWidth
+
+    // 定义一个粒子数组
+    var particlesArray = []
+    // 定义页面内粒子的数量
+    var count = parseInt(canvas.width / 80 * canvas.height / 80)
+
+
+    // 定义粒子类
+    class Particle {
+        constructor(x, y) {
+            this.x = x
+            this.y = y
+            // x，y轴的移动速度  -0.5 -- 0.5
+            this.directionX = Math.random() - 0.5
+            this.directionY = Math.random() - 0.5
+        }
+
+        // 更新点的坐标
+        update() {
+            this.x += this.directionX
+            this.y += this.directionY
+        }
+
+        // 绘制粒子
+        draw() {
+            ctx.beginPath()
+            ctx.arc(this.x, this.y, 2, 0, Math.PI * 2)
+            ctx.closePath()
+            ctx.fillStyle = "white"
+            ctx.fill()
+        }
+    }
+
+    // 创建粒子
+    function createParticle() {
+        // 生成一个点的随机坐标
+        var x = Math.random() * innerWidth
+        var y = Math.random() * innerHeight
+
+        particlesArray.push(new Particle(x, y))
+    }
+
+    // 处理粒子
+    // 先更新坐标，再绘制出来
+    function handleParticle() {
+        for (var i = 0; i < particlesArray.length; i++) {
+            var particle = particlesArray[i]
+            particle.update()
+            particle.draw()
+            // 超出范围就将这个粒子删除
+            if (particle.x < 0 || particle.x > canvas.width || particle.y < 0 || particle.y > canvas.height) {
+                particlesArray.splice(i, 1)
+            }
+
+            // 绘制两个点之间的连线
+            for (var j = i + 1; j < particlesArray.length; j++) {
+                dx = particlesArray[j].x - particlesArray[i].x
+                dy = particlesArray[j].y - particlesArray[i].y
+                dist = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2))
+                if (dist < 100) {
+                    ctx.beginPath()
+                    ctx.strokeStyle = "rgba(0, 228, 229, " + (1 - dist / 100)
+                    ctx.moveTo(particlesArray[i].x, particlesArray[i].y)
+                    ctx.lineTo(particlesArray[j].x, particlesArray[j].y)
+                    ctx.closePath()
+                    ctx.lineWidth = 1
+                    ctx.stroke()
+                }
+            }
+        }
+    }
+
+    function draw() {
+        // 首先清空画布
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+        // 如果粒子数量小于规定数量，就生成新的粒子
+        if (particlesArray.length < count) {
+            createParticle()
+        }
+
+        // 处理粒子
+        handleParticle()
+    }
+
+    // 设置定时器
+    setInterval(draw, 10)
+
+
+
+</script>
+<style>
+    * {
+
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+
+    #background {
+        width: 100%;
+        height: 100%;
+        /* background: url("./14.png"); */
+        background-color: #000000;
+        background-size: cover;
+        opacity: 0.8;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -999;
+    }
+
+
+
+    .name {
+        width: 600px;
+        height: 800px;
+        background-color: #ffffff57;
+        position: absolute;
+        right: 100px;
+        top: 100px;
+        border-radius: 30px;
+        box-shadow: 2px 2px 10px 2px #cccccc8a;
+        box-sizing: border-box;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .start,
+    .dabo,
+    .stop {
+        width: 100px;
+        height: 50px;
+        border-radius: 10px;
+    }
+
+    .start,
+    .dabo {
+        border: 2px solid #00b106;
+        color: #fefefe;
+        font-weight: 700;
+        background-color: #00b106;
+    }
+
+    .stop {
+        border: 2px solid #ff0000;
+        color: #ffffff;
+        font-weight: 700;
+        background-color: #ff0000;
+    }
+
+    .btn {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .user {
+        width: 100%;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ite {
+        width: 40px;
+        writing-mode: vertical-rl;
+        letter-spacing: 13px;
+        font-size: 30px;
+        margin: 0 10px;
+        text-shadow: 0 0 10px #dfd8d8;
+        background: linear-gradient(180deg, #14ffe9, #ffeb3b, rgb(255, 0, 225), rgb(34, 0, 255), red), green;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: ff 0.9s linear infinite;
+    }
+
+    .slideShine {
+        width: 100%;
+        height: 100%;
+        font-size: 50px;
+        color: rgb(254, 248, 240);
+        text-shadow: 2px 2px 10px 2px #000000;
+        text-align: center;
+        font-weight: bold;
+
+    }
+
+    /* 定义 slideShine 动画 */
+    .slideShine {
+        animation: slideShine 5s linear infinite;
+    }
+
+    /* 定义 slideShine 动画 */
+
+    @keyframes slideShine {
+
+        0%,
+        100% {
+            background-size: 130vw 130vh, 120vw 120vh, 100vw 150vh, 120vw 130vh;
+            background-position: -80vw -80vh, 30vw -20vh, -20vw 20vh, 30vw 20vh;
+        }
+
+        25% {
+            background-size: 120vw 120vh, 130vw 150vh, 130vw 120vh, 100vw 110vh;
+            background-position: -30vw -30vh, 40vw -10vh, 0vw 10vh, -10vw 20vh;
+        }
+
+        50% {
+            background-size: 130vw 130vh, 140vw 100vh, 100vw 150vh, 90vw 110vh;
+            background-position: 10vw -60vh, 20vw 10vh, 10vw 30vh, 10vw -20vh;
+        }
+
+        75% {
+            background-size: 140vw 140vh, 100vw 130vh, 100vw 150vh, 130vw 110vh;
+            background-position: -70vw -70vh, 0vw -10vh, 30vw -20vh, 20vw 30vh;
+        }
+    }
+
+    .classname {
+        width: 800px;
+        height: 800px;
+        background-color: #e8e8e85c;
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        border-radius: 30px;
+        box-shadow: 2px 2px 10px 2px #000000b0;
+        box-sizing: border-box;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+    }
+
+    .itName {
+        writing-mode: vertical-rl;
+        height: 150px;
+        width: 70px;
+        line-height: 62px;
+        text-align: center;
+        border-radius: 10px;
+        letter-spacing: 13px;
+        font-size: 30px;
+        margin: 0 10px;
+        text-shadow: 0 0 10px #cdf0f379;
+        /* background: linear-gradient(320deg, #14ffe9, #ffeb3b, rgb(255, 0, 225), rgb(34, 0, 255), red), green; */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: ff 0.9s linear infinite;
+        border: 2px solid #ffff;
+        font-weight: 700;
+        box-sizing: border-box;
+    }
+
+    @keyframes ff {
+        to {
+            filter: hue-rotate(360deg);
+        }
+    }
+
+    .active {
+        writing-mode: vertical-rl;
+        height: 150px;
+        width: 70px;
+        line-height: 62px;
+        text-align: center;
+        border-radius: 10px;
+        letter-spacing: 13px;
+        font-size: 30px;
+        margin: 0 10px;
+        text-shadow: 0 0 10px #cdf0f379;
+        background: linear-gradient(150deg, #a8f290, #3b5cff, rgb(255, 191, 0), rgb(238, 0, 255), red), green !important;
+        /* -webkit-background-clip: text; */
+        /* -webkit-text-fill-color: transparent; */
+        animation: ff 0.9s linear infinite;
+        border: 2px solid #00fff7;
+        font-weight: 700;
+        box-sizing: border-box;
+    }
+</style>
+
+</html>

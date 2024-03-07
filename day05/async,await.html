@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    async function get() {
+        return "hello wlord"
+    }
+
+    async function man() {
+        let res = await get()
+        console.log(res)
+    }
+    man()
+
+
+    // async function fn6(){
+    //     try {
+    //         let res=await get()
+    //         console.log(res)
+    //     } catch (err) {
+
+    //     }
+    // }
+
+    // const map = new Map([
+    //     ["name", "张三"],
+    //     ["title", "Author"],
+    // ])
+
+    // map.size
+    // map.has("name")
+    // map.get("name")
+    // map.has("title")
+    // map.get("title")
+
+    // console.log(map.size);
+    // console.log(map.has("name"));
+    // console.log(map.get("name"));
+
+
+    let arr=["好上司","你的据","看会议","窥探发"]
+    console.log(arr.push("徐良"));
+    arr.splice(1,1)
+    arr.includes(1)
+    arr.indexOf(1)
+
+</script>
+
+</html>

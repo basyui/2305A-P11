@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // let fn = () => {
+    //     console.log(this);
+    // }
+    let obj = {
+        say: function () {
+            //    console.log(this);
+            let fn = () => {
+                console.log(this);
+            }
+            fn()
+        }
+    }
+    obj.say()
+
+
+
+</script>
+
+</html>

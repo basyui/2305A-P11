@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // var name = "wer"
+    // var A={
+    //     name:"A",
+    //     say:function () {
+    //         console.log(this.name);
+    //     }
+    // }
+    // A.say()
+
+    // var B={
+    //     name:"B"
+    // }
+
+    // A.say.call(B)
+    // A.say.call()
+
+    // var name="window"
+    // var A={
+    //     name:"A",
+    //     say:()=>{
+    //         console.log(this.name);
+    //     }
+    // }
+    // A.say()
+    // var name="window"
+
+    // var A={
+    //     name:"A",
+    //     say:function(){
+    //         var s=()=>console.log(this.name);
+    //         return s
+    //     }
+
+    // }
+
+    // var sey=A.say()
+    // say()
+
+    // var B={
+    //     name:"B"
+    // }
+    // say.call(B)
+    // say.call()
+
+    // function add(a,b,c=10){
+    //     console.log(a,b,c);
+    //     return a+b+c;
+    // }
+    // let result=add(1,2)
+    // console.log(result);
+
+    // connect({
+    //     host:"atgu.com",
+    //     username:"root",
+    //     password:"123456",
+    //     port:3320
+    // })
+
+    // function connect({host="127.0.0.1",username,password,port}){
+    //     console.log(host,username,password,port);
+    // }
+
+
+    // function person(){
+    //     console.log(arguments);
+    // }
+    // person([1,2,3,4,5,6])
+    // const fan=(a,b,...args)=>{
+    //     console.log(args);
+    // }
+    // fan("歇息","噢批","uy")
+
+    // const arr=["dasd","asdiuiuiu","polki"]
+    // function fan(){
+    //     console.log(arguments);
+    // }
+    // fan(...arr)
+
+    // const result =[1,2,3,4,5]
+    // const Two=[...result,...arr]
+    // console.log(Two);
+
+    // const divs=document.querySelectorAll("div")
+    // const divArr=[...divs]
+    // console.log(divArr);
+
+
+
+    // const xiyou=['唐僧','孙悟空','猪八戒','沙僧']
+
+    // for (let i of xiyou){
+    //     console.log(i);
+    // }
+    // for (let i in xiyou){
+    //     console.log(i);
+    // }
+    // let iterator=xiyou[Symbol.iterator]()
+    // console.log(iterator);
+    // console.log(iterator.next())
+    // console.log(iterator.next())
+    // console.log(iterator.next())
+    // console.log(iterator.next())
+    
+
+    // function *gen() {
+    //     yield "一直么有耳朵"
+    //     yield "一直么有尾巴"
+    //     yield "正奇怪"
+    // }
+
+    // let iterator=gen()
+    // console.log(iterator)
+    // console.log(iterator.next())
+    // console.log(iterator.next())
+    // console.log(iterator.next())
+    // console.log(iterator.next())
+
+    
+    function *gen(arg) {
+        let one=yield arg
+        let two=yield arg
+        let three=yield 333
+    }
+    let iterarto=gen("AAA")
+    console.log(iterarto.next());
+    console.log(iterarto.next("BBB"));
+    console.log(iterarto.next("CCC"));
+    console.log(iterarto.next("DDD"));
+</script>
+
+</html>

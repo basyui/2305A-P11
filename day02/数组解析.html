@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let arr = ['阿吉', '阿布', '阿泰', '阿凯']
+
+    let [a, b, c, d] = arr
+    console.log(a);
+    console.log(c);
+
+    let pepro = {
+        name: '张三',
+        age: 18,
+        Say: function () {
+            alert('oh!!!!!!')
+        }
+    }
+
+    let { name, age } = pepro
+    console.log(name, age);
+
+    let { Say } = pepro
+    Say()
+
+    let txt = ` <div>
+        <p>才是回到武汉二恶意艾娃答</p>
+        <p>可是你不阿紫啊哈为女文化</p>
+    </div>`+"大家玩的"
+
+    document.querySelector('body').innerHTML = txt;
+
+    let byg='qinghua'
+    let change=function(){
+        console.log('我可以改百年你');
+    }
+
+   function Person(name,age) {
+    this.name=name
+    this.age=age
+   }
+   Person.prototype.sayHai=function(){
+    alert('我在说话')
+   }
+   const sexPerson=new Person('我都',34)
+</script>
+
+</html>

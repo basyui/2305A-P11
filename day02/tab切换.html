@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="list">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+    </div>
+</body>
+<style>
+    .list {
+        width: 500px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #ccc;
+        height: 100px;
+    }
+
+    .item {
+        background-color: #fff;
+        padding: 30px;
+    }
+
+    .active {
+        background-color: #c84040;
+        padding: 30px;
+    }
+</style>
+<script>
+    let lists = document.querySelectorAll(".item")
+    for (let i = 0; i < lists.length; i++) {
+        // lists[i].index = i
+        lists[i].onclick = function () {
+            if (lists[i].className == 'item') {
+                lists[i].className = 'active'
+            } else {
+                lists[i].className = 'item'
+            }
+        }
+    }
+</script>
+
+</html>
